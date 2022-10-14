@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+service ShippingService{
+    rpc CreateConsignment (Consignment) returns (Response);
+}
+
+message Consignment{
+    string id = 1;
+    repeated Container Containers = 2;
+}
+
+message Container{
+    string user = 1;
+}
+
+message Response{
+    bool code = 1;
+    Consignment Consignment = 2;
+}
